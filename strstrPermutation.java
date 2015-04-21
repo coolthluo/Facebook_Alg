@@ -39,7 +39,7 @@ public class strstrPermutation {
 		}
 	}
 	
-	//
+	//use hashmap O(n)
 	public boolean findPermutation2 (String S, String P) {
 		if (S == null || S.length() < P.length()) {
 			return false;
@@ -53,6 +53,7 @@ public class strstrPermutation {
 				dict.put(P.charAt(i), dict.get(P.charAt(i)) + 1);
 			}
 		}
+		//record the matched character number in String S
 		int count = 0; 
 		HashMap<Character, Integer> hm = new HashMap<Character, Integer>(dict);
 		for (int i = 0; i < S.length(); i++) {

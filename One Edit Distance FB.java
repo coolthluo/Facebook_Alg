@@ -37,17 +37,25 @@ public class Solution {
 
 	public boolean check(IntFileIterator a, IntFileIterator b, int distance) {
 		IntFileIterator aa = new IntFileIterator(a); //copy of iterator a before next() fucntion
-		IntFileIterator bb = new IntFileIterator(b);
+		IntFileIterator bb = new IntFileIterator(b);//copy of iterator b before next() function
+		//if hash next()
 		while (a.hasNext() && b.hasNext()) {
+			//check the next() value of a and b
 			int s = a.next();
 			int t = b.next();
+			//if s doesn't equal t
 			if (s != t) {
+				//we go on check the next value of a anf b,
 				IntFileIterator aaa = new IntFileIterator(a);
 				IntFileIterator bbb = new IntFileIterator(b);
+				//and we increse the distance,
 				distance++;
+				//if the distance large than 1 ,return false;
 				if (distance > 1) {
 					return false;
 				}
+				//if the distance smaller than 1,
+				//we just check aa and b, a and bb, aaa and bbb,
 				return check(aa, b, distance) || check(a, bb, distance) || check(aaa, bbb, distance);
 			} else {
 				return check(a, b, distance);

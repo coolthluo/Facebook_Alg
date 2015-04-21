@@ -17,6 +17,9 @@ public class Solution {
 	//param k : description of k
 	//param numbers : array of numbers
 	//return: description of return
+	/*
+		ArrayList version
+	*/
 	public int kthLargestElement(int k, ArrayList<Integer> numbers) {
 		if (k > numbers.size()) {
 			return 0;
